@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 #define TAM 5
 
 int calcedad(short dia,short mes,short ano);
+int calcedad2(short dia,short mes,short ano);
 void pet (char *nom,char *apellidos,int* edad,short* dia,short* mes,short* ano);
 main (){
 	struct fecha{
@@ -79,11 +81,28 @@ main (){
 	return 0;
 }
 
+
 int calcedad(short dia,short mes,short ano){
 	short dia1 = {2}, mes1 = {2}, ano1 = {2021};
 	dia = dia - dia1;
 	mes =  mes - mes1;
 	ano =  ano1 - ano;
+	if (ano<0)
+		ano = ano * -1;
+	if (dia>0 && mes>0)
+		ano = ano-1;
+	return ano;
+}
+int calcedad2(short dia,short mes,short ano){
+	struct fecha2{
+		int tm_mday;
+		int tm_mon;
+		int tm_yday;
+	};
+	struct fecha2 fech = {3,1,2021};
+	ano = ano - fech.tm_yday;
+	dia = dia - fech.tm_mday;
+	mes = mes - fech.tm_mon;
 	if (ano<0)
 		ano = ano * -1;
 	if (dia>0 && mes>0)
