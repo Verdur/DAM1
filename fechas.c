@@ -15,9 +15,12 @@ main(){
 	fechaTM=localtime(&fecha);
 	printf ("La fecha de hoy es %s\n", asctime(fechaTM));
 	struct tm ayer;
-	ayer.tm_year=2021-1900;
-	ayer.tm_mon=2-1;
-	ayer.tm_mday=4;
+	ayer.tm_year=2001-1900;
+	ayer.tm_mon=6-1;
+	ayer.tm_mday=9;
+	ayer.tm_sec=0;
+	ayer.tm_hour=0-1;
+	ayer.tm_min=0;
 	fecha2 = mktime(&ayer);
 	printf ("La fecha actual es %s\n",ctime(&fecha2));
 	system ("pause");
