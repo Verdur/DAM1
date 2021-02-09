@@ -1,10 +1,11 @@
 #include <stdio.h>
-
+#include <string.h>
+#define TAM 11
 main(){
 	FILE * f;
 
 	char aux = ' ';
-	char aux1 [101] = "abc";
+	char aux1 [TAM] = "abc";
 	int i = 0;
 	f = fopen("archivo.txt","r+");
 	if (f == NULL)
@@ -30,14 +31,16 @@ main(){
 		printf("No se ha podido leer el archivo");
 	else{
 		for(i=1;i<=3;i++){
+			do{
 			gets (aux1);
 			fflush (stdin);
+			}while(strlen(aux1)>=TAM);
 			fputs (aux1, f);
 		}
 		rewind (f);
 		printf ("2. ");
 		do{
-			fgets (aux1,101,f);
+			fgets (aux1,TAM,f);
 			printf("%s",aux1);
 		}while (!feof(f));
 	}
