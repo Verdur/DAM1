@@ -4,6 +4,7 @@
 
 main(){
 	FILE * f;
+	int reg = {0};
 	struct registros{
 		char signo [TAM];
 		char input [TAM];
@@ -48,6 +49,10 @@ main(){
 		fread (&reg1.input,sizeof(reg1.input),1,f);
 		//fgets (input,100,f);
 	}
+	scanf("%d",&reg);
+	fseek (f,reg*sizeof(reg1),SEEK_SET);
+	fwrite (&reg1.input,sizeof(reg1.input),1,f);
+	printf("%s\n",reg1.input);
 	fclose(f);
 	
 	
