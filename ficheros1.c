@@ -41,11 +41,15 @@ main(){
 		printf ("2. ");
 		do{
 			fgets (aux1,TAM,f);
-			printf("%s",aux1);
+			printf("%s\n",aux1);
 		}while (!feof(f));
+		rewind(f);
+		fseek(f, 1, SEEK_CUR);
+		fgets (aux1,2,f);
+		printf("%s\n",aux1);
 	}
-	printf ("\n");
 	fclose (f);
+	
 	system ("pause");
 	return 0;
 }

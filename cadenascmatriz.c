@@ -16,7 +16,6 @@ main(){
 			scanf ("%c",&input[j]);
 			fflush (stdin);
 		}while(input[j] != ' ');
-		strcpy(cadenas[i],input);
 	}
 	for (i=TOTCAD;i>=0;--i)
 		printf ("%s \n",cadenas [i]);
